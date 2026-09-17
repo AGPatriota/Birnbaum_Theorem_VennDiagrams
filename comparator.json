@@ -1,0 +1,36 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "VennDiagrams.preservingClass_equivalenceClosure",
+    "VennDiagrams.likelihoodRelation_isEquivalence",
+    "VennDiagrams.finite_neyman_fisher_factorization",
+    "VennDiagrams.finite_minimal_sufficiency_iff_likelihoodFiberCriterion",
+    "VennDiagrams.packedLowerTailLRPValue_mem_Icc",
+    "VennDiagrams.packedFiniteConditionalityClosure_eq_likelihoodRelation",
+    "VennDiagrams.packedFiniteJointClosure_eq_likelihoodRelation",
+    "VennDiagrams.Certification.PaperSignature.theorem_BT1_procedure_classes",
+    "VennDiagrams.Certification.PaperSignature.corollary_BT2_conditional_pairs",
+    "VennDiagrams.Certification.PaperSignature.corollary_BT3_joint_pairs",
+    "VennDiagrams.Certification.PaperSignature.packed_sufficiency_conditionality_incomparable",
+    "VennDiagrams.Certification.PaperSignature.finite_lr_pvalue_separation",
+    "VennDiagrams.Certification.PaperSignature.evans2013_theorem7_packed",
+    "VennDiagrams.Certification.PaperSignature.evans2013_theorem9_packed",
+    "VennDiagrams.Certification.PaperSignature.evans2013_lemma1",
+    "VennDiagrams.Certification.PaperSignature.evans2013_lemma2",
+    "VennDiagrams.Certification.PaperSignature.evans2013_lemma3_packed",
+    "VennDiagrams.Certification.PaperSignature.evans2013_lemma4_packed",
+    "VennDiagrams.Certification.PaperSignature.evans2013_lemma5_packed",
+    "VennDiagrams.Certification.PaperSignature.evans2013_lemma6_packed",
+    "VennDiagrams.Certification.PaperSignature.evans2013_theorem8_packed",
+    "VennDiagrams.Certification.PaperSignature.evans2013_corollary10_packed",
+    "VennDiagrams.Certification.PaperSignature.evans2013_four_step_chain_packed"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}

@@ -1,0 +1,1337 @@
+version: v0.4
+project:
+  name: 'Birnbaum’s principles in Venn diagrams: Extended version with Lean verification'
+  description: >-
+    We reformulate Birnbaum's theorem as a statement about classes of statistical procedures
+    that preserve statistical relations, and show that the proof reduces to the propagation
+    of evidential equality along chains of conditionality-related inference bases (experiment–observation
+    pairs). For finite parameter spaces with at least two points, the sufficiency relation and
+    the conditionality relation are incomparable, yet the corresponding preservation classes
+    are nested. The class of likelihood-invariant procedures with codomain [0, 1] is strictly
+    contained in the class of sufficiency-invariant procedures. The lower-tail likelihood-ratio
+    p-value illustrates this strict inclusion.
+  authors:
+  - Jaime Enrique Lincovil Curivil
+  - Alexandre Galvão Patriota
+  license: Apache-2.0
+  responsible_maintainers:
+  - Alexandre Galvão Patriota
+classification:
+  arxiv:
+  - math.ST
+  msc2020:
+  - 62A01
+  - 62B05
+sources:
+- title: 'Birnbaum’s principles in Venn diagrams: Extended version with Lean verification'
+  authors:
+  - Jaime Enrique Lincovil Curivil
+  - Alexandre Galvão Patriota
+  type: paper
+  relationship: formalizes
+  id: >-
+    Lincovil Curivil, J. E., and Patriota, A. G. (2026). Birnbaum's principles in Venn diagrams:
+    Extended version with Lean verification.
+  location: Theorem 3.1; Corollary 3.1 and Corollary 3.2; Example 3.7; Appendix A.
+  note: The correspondence with the manuscript was checked by the authors
+- title: What does the proof of Birnbaum’s theorem prove?
+  authors:
+  - Evans, M.
+  type: paper
+  relationship: adapts
+  id: https://doi.org/10.1214/13-EJS857
+  location: Electronic Journal of Statistics, 7, 2645–2655. Lemmas 1–6, Theorems 7–9, and Corollary
+    10.
+  note: >-
+    The statistical results are proved from our definitions of L, S, and C in the finite setting,
+    under the stated assumptions.
+status:
+  scope: >-
+    Finite effective sample spaces and a common non-empty finite parameter space. Theorem 3.1,
+    Corollary 3.1 and Corollary 3.2, the finite closure argument, the Neyman–Fisher factorization,
+    minimal sufficiency, incomparability, and the lower-tail likelihood-ratio p-value. The Lean
+    development also certifies counterparts of ten numbered results of Evans (2013); Lemmas
+    1-6, Theorems 7-9, and Corollary 10. The output set is allowed to be empty. The reduced stable 
+    conditionality relation, maximum-likelihood set estimates, posterior probabilities, and 
+    confidence-region constructions are not included in Challenge.lean.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Quot.sound
+  - Classical.choice
+automation:
+  methods:
+  - method: other
+    models:
+    - GPT-6 Astra
+    tool_setup: formal proofs in Lean and cross-checking the manuscript against the formalization
+  notes: >-
+    The authors used GPT-6 Astra to assist with formal proofs in Lean and cross-checking the
+    manuscript against the formalization. The correspondence with the manuscript was audited by the authors.
+    The authors remain responsible for the article and its accompanying code.
+fidelity:
+  divergences: >-
+    For the finite setting considered here, the definition makes explicit the conditionality
+    relation used in the arguments of Evans (2013). In particular, the sample-space identifications
+    that are implicit in Evans' formulation are stated explicitly in order to permit its
+    formalization in Lean. The present framework is developed under the equivalence-based reading 
+    consistent with Birnbaum (1962) and Evans (2013).
+review:
+  status: author-audited
+  notes: >-
+    The coverage records document the author-audited correspondence between the manuscript and
+    the formal statements. The authors remain responsible for the article and its accompanying
+    code.
+
+alignment:
+  namespace: VennDiagrams
+  statements:
+
+  - source: "Equation 1.1 | Equation 2.4"
+    lean: VennDiagrams.birnbaum_semantics_iff_evans_closure
+    module: VennDiagrams.S01_Relations
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 1.1; Table 1"
+    lean: VennDiagrams.FiniteExamples.e0_normalized
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 1.1; Table 1"
+    lean: VennDiagrams.FiniteExamples.marginal_models_normalized
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 1.1; Table 1"
+    lean: VennDiagrams.FiniteExamples.eT_normalized
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Table 1"
+    lean: VennDiagrams.FiniteExamples.e0_probability_table
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Table 1"
+    lean: VennDiagrams.FiniteExamples.e1_probability_table
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Table 1"
+    lean: VennDiagrams.FiniteExamples.e2_probability_table
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Table 1"
+    lean: VennDiagrams.FiniteExamples.eT_probability_table
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 1.1"
+    lean: VennDiagrams.FiniteExamples.e0_mle_characterization
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 1.1"
+    lean: VennDiagrams.FiniteExamples.eT_mle_characterization
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 1.1"
+    lean: VennDiagrams.FiniteExamples.displayed_e0_and_eT_mle_values
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 1.1"
+    lean: VennDiagrams.FiniteExamples.e0_mle_induced_table
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 1.1"
+    lean: VennDiagrams.FiniteExamples.eT_mle_induced_table
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 1.1"
+    lean: VennDiagrams.FiniteExamples.e0_eT_mle_laws_coincide
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Section 2"
+    lean: VennDiagrams.FiniteModel
+    module: VennDiagrams.S04_StatisticalPrimitives
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Section 2"
+    lean: VennDiagrams.PackedFiniteInferenceBase
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Section 2"
+    lean: VennDiagrams.PackedFiniteInferenceBase.asInferenceBase
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Section 2.1"
+    lean: VennDiagrams.StatisticalRelation
+    module: VennDiagrams.S01_Relations
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Section 2.1 | Equation 2.1"
+    lean: VennDiagrams.likelihoodRelation
+    module: VennDiagrams.S03_LikelihoodProcedures
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Section 2.1 | Equation 2.1"
+    lean: VennDiagrams.packedFiniteLikelihoodRelation
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Example 2.1"
+    lean: VennDiagrams.FiniteExamples.six_listed_initial_L_memberships
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Section 2.1 | Equation 2.2"
+    lean: VennDiagrams.FiniteSufficient
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Section 2.1 | Equation 2.2"
+    lean: VennDiagrams.FiniteMinimalSufficient
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Section 2.1"
+    lean: VennDiagrams.finiteSufficiencyPair
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Section 2.1 | Equation 2.2"
+    lean: VennDiagrams.packedFiniteSufficiencyRelation
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Section 2.1"
+    lean: VennDiagrams.finite_minimal_sufficiency_iff_likelihoodFiberCriterion
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Included in comparator.json.
+
+  - source: "Section 2.1"
+    lean: VennDiagrams.injective_relabel_canonicalMinimalSufficient_isFiniteMinimalSufficient
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Section 2.1; Evans (2013), Lemma 4"
+    lean: VennDiagrams.Certification.PaperSignature.evans2013_lemma4_packed
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Included in comparator.json.
+
+  - source: "Example 2.2"
+    lean: VennDiagrams.FiniteExamples.mStatistic_minimal_sufficient_criterion
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 2.2"
+    lean: VennDiagrams.FiniteExamples.mTStatistic_minimal_sufficient_criterion
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 2.2"
+    lean: VennDiagrams.Certification.PaperSignature.PackedRelationExample.mStatistic_isFiniteMinimalSufficient
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 2.2"
+    lean: VennDiagrams.Certification.PaperSignature.PackedRelationExample.mTStatistic_isFiniteMinimalSufficient
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 2.2"
+    lean: VennDiagrams.Certification.PaperSignature.PackedRelationExample.six_listed_initial_packedS_memberships
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Table 2"
+    lean: VennDiagrams.FiniteExamples.induced_m_models_table
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Table 2"
+    lean: VennDiagrams.FiniteExamples.induced_m_models_coincide
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Table 2"
+    lean: VennDiagrams.Certification.PaperSignature.PackedRelationExample.m_and_mT_inducedPMF_coincide
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Section 2.1"
+    lean: VennDiagrams.finiteDirectionalConditionalityPair
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Section 2.1 | Equation 2.3"
+    lean: VennDiagrams.finiteConditionalityPair
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Section 2.1 | Equation 2.3"
+    lean: VennDiagrams.packedFiniteConditionalityRelation
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Section 2.1"
+    lean: VennDiagrams.equivalenceClosure_conditionalityRelation
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 2.3"
+    lean: VennDiagrams.FiniteExamples.firstCoordinate_ancillary
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 2.3"
+    lean: VennDiagrams.FiniteExamples.secondCoordinate_ancillary
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 2.3"
+    lean: VennDiagrams.FiniteExamples.conditionality_nontransitivity_witness
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 2.3"
+    lean: VennDiagrams.FiniteExamples.concreteConditionality_not_transitive
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 2.3 | Table 4"
+    lean: VennDiagrams.Certification.PaperSignature.PackedRelationExample.e0GivenU0RealPmf_eq_ratCast
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 2.3 | Table 3 | Table 4"
+    lean: VennDiagrams.Certification.PaperSignature.PackedRelationExample.e0GivenV0RealPmf_eq_ratCast
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 2.3"
+    lean: VennDiagrams.Certification.PaperSignature.PackedRelationExample.packed_e0_conditionality_nontransitivity_witness
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 2.3"
+    lean: VennDiagrams.Certification.PaperSignature.packedFiniteConditionalityRelation_not_transitive
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Table 3"
+    lean: VennDiagrams.FiniteExamples.conditional_v_table
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Table 4"
+    lean: VennDiagrams.FiniteExamples.conditional_u0_v0_table
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Table 5"
+    lean: VennDiagrams.FiniteExamples.conditional_u0_mle_induced_table
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Table 5"
+    lean: VennDiagrams.FiniteExamples.e0_conditional_u0_mle_laws_coincide
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 2.4"
+    lean: VennDiagrams.FiniteExamples.hierarchical_models_normalized
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 2.4"
+    lean: VennDiagrams.FiniteExamples.selector_ancillary
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 2.4"
+    lean: VennDiagrams.FiniteExamples.condition_on_selector_zero_is_e3
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 2.4"
+    lean: VennDiagrams.FiniteExamples.condition_on_selector_one_is_e4
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 2.4 | Table 7"
+    lean: VennDiagrams.FiniteExamples.hierarchical_mle_laws_differ
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 2.4"
+    lean: VennDiagrams.Certification.PaperSignature.PackedRelationExample.five_listed_hierarchical_packedC_memberships
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Table 6"
+    lean: VennDiagrams.FiniteExamples.e3_probability_table
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Table 6"
+    lean: VennDiagrams.FiniteExamples.e4_probability_table
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Table 6"
+    lean: VennDiagrams.FiniteExamples.eStar_probability_table
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Table 7"
+    lean: VennDiagrams.FiniteExamples.e3_mle_induced_table
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Table 7"
+    lean: VennDiagrams.FiniteExamples.eStar_mle_induced_table
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 2.5"
+    lean: VennDiagrams.FiniteExamples.pA_in_S_diff_C
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 2.5"
+    lean: VennDiagrams.FiniteExamples.pB_in_C_diff_S
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 2.5 | Figure 1"
+    lean: VennDiagrams.Certification.PaperSignature.concrete_sufficiency_conditionality_incomparable
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 2.5"
+    lean: VennDiagrams.Certification.PaperSignature.PackedRelationExample.pA_in_packedS
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 2.5"
+    lean: VennDiagrams.Certification.PaperSignature.PackedRelationExample.pA_not_in_packedC
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 2.5"
+    lean: VennDiagrams.Certification.PaperSignature.PackedRelationExample.pB_in_packedC
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 2.5"
+    lean: VennDiagrams.Certification.PaperSignature.PackedRelationExample.pB_not_in_packedS
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 2.5 | Example 2.5; Section 2.1 | Figure 1"
+    lean: VennDiagrams.Certification.PaperSignature.packed_sufficiency_conditionality_incomparable
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Included in comparator.json.
+
+  - source: "Section 2.1"
+    lean: VennDiagrams.likelihoodRelation_isEquivalence
+    module: VennDiagrams.S03_LikelihoodProcedures
+    status: proved
+    note: Included in comparator.json.
+
+  - source: "Section 2.1; Evans (2013), Lemma 3"
+    lean: VennDiagrams.Certification.PaperSignature.evans2013_lemma3_packed
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Included in comparator.json.
+
+  - source: "Section 2.1; Evans (2013), Lemma 5"
+    lean: VennDiagrams.Certification.PaperSignature.evans2013_lemma5_packed
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Included in comparator.json.
+
+  - source: "Section 2.1; Evans (2013), Lemma 6"
+    lean: VennDiagrams.Certification.PaperSignature.evans2013_lemma6_packed
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Included in comparator.json.
+
+  - source: "Section 2.1; Evans (2013), Theorem 7 | Figure 1 | Theorem 3.1 | Figure 2"
+    lean: VennDiagrams.Certification.PaperSignature.evans2013_theorem7_packed
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Included in comparator.json.
+
+  - source: "Section 2.1; Evans (2013), Theorem 8"
+    lean: VennDiagrams.Certification.PaperSignature.evans2013_theorem8_packed
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Included in comparator.json.
+
+  - source: "Section 2.1; Evans (2013), Theorem 9 | Figure 1 | Theorem 3.1 | Figure 2"
+    lean: VennDiagrams.Certification.PaperSignature.evans2013_theorem9_packed
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Included in comparator.json.
+
+  - source: "Section 2.1; Evans (2013), Corollary 10"
+    lean: VennDiagrams.Certification.PaperSignature.evans2013_corollary10_packed
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Included in comparator.json.
+
+  - source: "Figure 1"
+    lean: VennDiagrams.reflexive_relations_share_identity
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Figure 1 | Theorem 3.1"
+    lean: VennDiagrams.Certification.PaperSignature.packedFiniteSufficiencyRelation_lt_likelihoodRelation
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Equation 2.1 | Equation 2.2 | Equation 2.3 | Definition 3.2"
+    lean: VennDiagrams.Preserves
+    module: VennDiagrams.S01_Relations
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Equation 2.2"
+    lean: VennDiagrams.PackedFiniteStatistic
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Equation 2.3"
+    lean: VennDiagrams.conditionalityRelation
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Definition 3.1"
+    lean: VennDiagrams.Certification.PaperSignature.definition_procedure_output
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Definition 3.1 | Example 3.4"
+    lean: VennDiagrams.Procedure
+    module: VennDiagrams.S01_Relations
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Definition 3.1"
+    lean: VennDiagrams.output
+    module: VennDiagrams.S01_Relations
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Definition 3.1"
+    lean: VennDiagrams.graphProcedure
+    module: VennDiagrams.S01_Relations
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Definition 3.1"
+    lean: VennDiagrams.graphProcedure_unique_outputs
+    module: VennDiagrams.S01_Relations
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Definition 3.1"
+    lean: VennDiagrams.exists_function_of_unique_outputs
+    module: VennDiagrams.S01_Relations
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.1"
+    lean: VennDiagrams.maximumLikelihoodProcedure_preserves_likelihood
+    module: VennDiagrams.S03_LikelihoodProcedures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.1 | Equation 3.2"
+    lean: VennDiagrams.umvueOutput
+    module: VennDiagrams.S04_StatisticalPrimitives
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Example 3.1 | Equation 3.2"
+    lean: VennDiagrams.packedUMVUEOutput
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Example 3.1 | Equation 3.2"
+    lean: VennDiagrams.mem_packedUMVUEOutput_iff
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.1"
+    lean: VennDiagrams.maximizerSet_nonempty_of_finite
+    module: VennDiagrams.S04_StatisticalPrimitives
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.1"
+    lean: VennDiagrams.umvueCandidate_unbiased
+    module: VennDiagrams.S04_StatisticalPrimitives
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Equation 3.1"
+    lean: VennDiagrams.maximizerSet
+    module: VennDiagrams.S03_LikelihoodProcedures
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Equation 3.1"
+    lean: VennDiagrams.maximumLikelihoodProcedure
+    module: VennDiagrams.S03_LikelihoodProcedures
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Equation 3.2"
+    lean: VennDiagrams.UnbiasedEstimator
+    module: VennDiagrams.S04_StatisticalPrimitives
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Equation 3.2"
+    lean: VennDiagrams.IsUMVUE
+    module: VennDiagrams.S04_StatisticalPrimitives
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Example 3.2"
+    lean: VennDiagrams.ParameterPartition
+    module: VennDiagrams.S04_StatisticalPrimitives
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Example 3.2 | Equation 3.3"
+    lean: VennDiagrams.extendedLikelihoodRatio
+    module: VennDiagrams.S04_StatisticalPrimitives
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Example 3.2"
+    lean: VennDiagrams.lowerTailLRPValue_mem_Icc
+    module: VennDiagrams.S04_StatisticalPrimitives
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.2"
+    lean: VennDiagrams.packedLowerTailLRPValue
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Example 3.2"
+    lean: VennDiagrams.packedLowerTailLRPValue_mem_Icc
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Included in comparator.json.
+
+  - source: "Example 3.2"
+    lean: VennDiagrams.packedLowerTailLRPValueInUnitInterval
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Example 3.2"
+    lean: VennDiagrams.packedLowerTailLRPValueProcedure
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Example 3.2"
+    lean: VennDiagrams.lowerTailLRPValue_superuniform
+    module: VennDiagrams.S04_StatisticalPrimitives
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.2"
+    lean: VennDiagrams.lowerTailLRPValue_strict_rejection_bound
+    module: VennDiagrams.S04_StatisticalPrimitives
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Equation 3.3"
+    lean: VennDiagrams.extendedLikelihoodRatio_zero_zero
+    module: VennDiagrams.S04_StatisticalPrimitives
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Equation 3.3"
+    lean: VennDiagrams.extendedLikelihoodRatio_pos_div_zero
+    module: VennDiagrams.S04_StatisticalPrimitives
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.3"
+    lean: VennDiagrams.posteriorProbability_mem_Icc_of_nonnegative_prior
+    module: VennDiagrams.S04_StatisticalPrimitives
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.3 | Equation 3.6"
+    lean: VennDiagrams.posteriorProbability_eq_of_proportional
+    module: VennDiagrams.S03_LikelihoodProcedures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.3"
+    lean: VennDiagrams.posteriorProcedure_preserves_likelihood
+    module: VennDiagrams.S03_LikelihoodProcedures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.3 | Equation 3.4"
+    lean: VennDiagrams.packedPosteriorProbability
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Example 3.3"
+    lean: VennDiagrams.packedPosteriorProcedure_preserves_likelihood
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Equation 3.4"
+    lean: VennDiagrams.posteriorProcedure
+    module: VennDiagrams.S03_LikelihoodProcedures
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Equation 3.4"
+    lean: VennDiagrams.packedPosteriorProbability_val
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Equation 3.4"
+    lean: VennDiagrams.packedPosteriorProcedure
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Equation 3.5"
+    lean: VennDiagrams.posteriorMass
+    module: VennDiagrams.S03_LikelihoodProcedures
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Equation 3.5"
+    lean: VennDiagrams.posteriorNormalizer
+    module: VennDiagrams.S03_LikelihoodProcedures
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Equation 3.6"
+    lean: VennDiagrams.posteriorNormalizer_eq_of_proportional
+    module: VennDiagrams.S03_LikelihoodProcedures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Equation 3.6"
+    lean: VennDiagrams.posteriorMass_eq_of_proportional
+    module: VennDiagrams.S03_LikelihoodProcedures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.5"
+    lean: VennDiagrams.positiveRay
+    module: VennDiagrams.S03_LikelihoodProcedures
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Example 3.5"
+    lean: VennDiagrams.bayesianInformationProcedure
+    module: VennDiagrams.S03_LikelihoodProcedures
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Example 3.5"
+    lean: VennDiagrams.bayesianInformationProcedure_preserves_likelihood
+    module: VennDiagrams.S03_LikelihoodProcedures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.6"
+    lean: VennDiagrams.HasCoverage
+    module: VennDiagrams.S04_StatisticalPrimitives
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Example 3.6"
+    lean: VennDiagrams.confidenceProcedure
+    module: VennDiagrams.S04_StatisticalPrimitives
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Example 3.6"
+    lean: VennDiagrams.confidenceProcedure_output_nonempty
+    module: VennDiagrams.S04_StatisticalPrimitives
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.6"
+    lean: VennDiagrams.coverageProbability_eq_sum_indicator
+    module: VennDiagrams.S04_StatisticalPrimitives
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.6"
+    lean: VennDiagrams.packedConfidenceProcedure
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Example 3.6"
+    lean: VennDiagrams.mem_output_packedConfidenceProcedure_iff
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.6"
+    lean: VennDiagrams.packedConfidenceProcedure_output_nonempty
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Definition 3.2"
+    lean: VennDiagrams.Certification.PaperSignature.definition_preserves_relation
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Definition 3.2 | Definition 3.3"
+    lean: VennDiagrams.preservingClass
+    module: VennDiagrams.S01_Relations
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Definition 3.3"
+    lean: VennDiagrams.Certification.PaperSignature.definition_joint_preservation
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Definition 3.3"
+    lean: VennDiagrams.preserves_union_iff
+    module: VennDiagrams.S01_Relations
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Definition 3.3"
+    lean: VennDiagrams.preservingClass_union
+    module: VennDiagrams.S01_Relations
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Theorem 3.1 | Figure 2"
+    lean: VennDiagrams.Certification.PaperSignature.theorem_BT1_procedure_classes
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Included in comparator.json.
+
+  - source: "Theorem 3.1"
+    lean: VennDiagrams.Certification.PaperSignature.packed_procedure_class_strict_iff
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Theorem 3.1"
+    lean: VennDiagrams.Certification.PaperSignature.singleton_parameter_procedure_classes
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Theorem 3.1"
+    lean: VennDiagrams.Certification.PaperSignature.procedure_eq_empty_of_isEmpty_output
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Theorem 3.1"
+    lean: VennDiagrams.Certification.PaperSignature.preservingClass_eq_of_isEmpty_output
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.7"
+    lean: VennDiagrams.finite_neyman_fisher_factorization
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Included in comparator.json.
+
+  - source: "Example 3.7"
+    lean: VennDiagrams.extendedLikelihoodRatio_induced_of_finiteSufficient
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.7"
+    lean: VennDiagrams.lowerTailProbability_induced_of_finiteSufficient
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.7"
+    lean: VennDiagrams.lowerTailLRPValue_induced_of_finiteSufficient
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.7"
+    lean: VennDiagrams.packedLowerTailLRPValue_eq_reduced
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.7"
+    lean: VennDiagrams.packedLowerTailLRPValueProcedure_preserves_sufficiency
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.7"
+    lean: VennDiagrams.Certification.PaperSignature.PackedPValueExample.e5_extendedLikelihoodRatio_x
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.7"
+    lean: VennDiagrams.Certification.PaperSignature.PackedPValueExample.e5_extendedLikelihoodRatio_y
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.7"
+    lean: VennDiagrams.Certification.PaperSignature.PackedPValueExample.e6_extendedLikelihoodRatio_u
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.7"
+    lean: VennDiagrams.Certification.PaperSignature.PackedPValueExample.e6_extendedLikelihoodRatio_v
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.7"
+    lean: VennDiagrams.Certification.PaperSignature.PackedPValueExample.e5_lowerTailRegion_x
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.7"
+    lean: VennDiagrams.Certification.PaperSignature.PackedPValueExample.e6_lowerTailRegion_u
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.7"
+    lean: VennDiagrams.Certification.PaperSignature.PackedPValueExample.e5_lowerTailLRPValue_x
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.7"
+    lean: VennDiagrams.Certification.PaperSignature.PackedPValueExample.e6_lowerTailLRPValue_u
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.7"
+    lean: VennDiagrams.Certification.PaperSignature.PackedPValueExample.packedE5X_packedE6U_likelihood_related
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.7"
+    lean: VennDiagrams.Certification.PaperSignature.PackedPValueExample.packedLowerTailLRPValueProcedure_not_preserves_likelihood
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.7"
+    lean: VennDiagrams.Certification.PaperSignature.packed_e5_e6_lr_pvalue_separation
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.7"
+    lean: VennDiagrams.Certification.PaperSignature.PackedPValueExample.packedE5X_packedE6U_not_conditionality
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.7"
+    lean: VennDiagrams.Certification.PaperSignature.PackedPValueExample.packedE5X_packedE6U_not_sufficiency
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.7"
+    lean: VennDiagrams.Certification.PaperSignature.finite_lr_pvalue_separation
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Included in comparator.json.
+
+  - source: "Table 8"
+    lean: VennDiagrams.FiniteExamples.e5_e6_probability_tables
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Table 8"
+    lean: VennDiagrams.FiniteExamples.e5_e6_normalized
+    module: VennDiagrams.S02_FiniteExamples
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Table 8"
+    lean: VennDiagrams.Certification.PaperSignature.PackedPValueExample.e5RealPmf_eq_ratCast
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Table 8"
+    lean: VennDiagrams.Certification.PaperSignature.PackedPValueExample.e6RealPmf_eq_ratCast
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Example 3.7"
+    lean: VennDiagrams.Certification.PaperSignature.PackedPValueExample.packedE5X_packedE6U_joint_strict_witness
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Corollary 3.1 | Figure 3"
+    lean: VennDiagrams.Certification.PaperSignature.corollary_BT2_conditional_pairs
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Included in comparator.json.
+
+  - source: "Corollary 3.1 | Figure 3 | Appendix A, Finite closure argument"
+    lean: VennDiagrams.packedFiniteConditionalityClosure_eq_likelihoodRelation
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Included in comparator.json.
+
+  - source: "Figure 3"
+    lean: VennDiagrams.equivalenceClosure_eq_zigzagClosure
+    module: VennDiagrams.S01_Relations
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Corollary 3.2"
+    lean: VennDiagrams.Certification.PaperSignature.corollary_BT3_joint_pairs
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Included in comparator.json.
+
+  - source: "Corollary 3.2 | Appendix A, Finite closure argument"
+    lean: VennDiagrams.packedFiniteJointClosure_eq_likelihoodRelation
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Included in comparator.json.
+
+  - source: "Section 4"
+    lean: VennDiagrams.productProcedure_preserves
+    module: VennDiagrams.S04_StatisticalPrimitives
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Section 4"
+    lean: VennDiagrams.productProcedure_preserves_iff_of_nonempty
+    module: VennDiagrams.S04_StatisticalPrimitives
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Lemma A.1"
+    lean: VennDiagrams.Certification.PaperSignature.lemma_bl1_equivalence_closure
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Appendix A, Lemma A.1; Evans (2013), Lemma 1"
+    lean: VennDiagrams.Certification.PaperSignature.evans2013_lemma1
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Included in comparator.json.
+
+  - source: "Lemma A.2"
+    lean: VennDiagrams.Certification.PaperSignature.lemma_bl3_disjoint_classes
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Lemma A.3"
+    lean: VennDiagrams.Certification.PaperSignature.lemma_a_preserving_classes
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Lemma A.4"
+    lean: VennDiagrams.Certification.PaperSignature.lemma_b_strict_antitone
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Lemma A.5"
+    lean: VennDiagrams.Certification.PaperSignature.lemma_FT_preservation_closure
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Appendix A, Lemma A.5"
+    lean: VennDiagrams.preservingClass_equivalenceClosure
+    module: VennDiagrams.S01_Relations
+    status: proved
+    note: Included in comparator.json.
+
+  - source: "Appendix A, Finite closure argument"
+    lean: VennDiagrams.Evans2013Construction.starPMF
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Appendix A, Finite closure argument"
+    lean: VennDiagrams.Evans2013Construction.starModel
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Appendix A, Finite closure argument"
+    lean: VennDiagrams.Evans2013Construction.starModel_all_effective
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Appendix A, Finite closure argument"
+    lean: VennDiagrams.Evans2013Construction.inducedPMF_starBranch_zero
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Appendix A, Finite closure argument"
+    lean: VennDiagrams.Evans2013Construction.inducedPMF_starFork_zero
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Appendix A, Finite closure argument"
+    lean: VennDiagrams.Evans2013Construction.starBranch_surjective
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Appendix A, Finite closure argument"
+    lean: VennDiagrams.Evans2013Construction.starFork_surjective
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Appendix A, Finite closure argument"
+    lean: VennDiagrams.Evans2013Construction.bridgePMF
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Appendix A, Finite closure argument"
+    lean: VennDiagrams.Evans2013Construction.bridgeModel_all_effective
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Appendix A, Finite closure argument"
+    lean: VennDiagrams.Evans2013Construction.starPacked_conditions_to_original
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Appendix A, Finite closure argument"
+    lean: VennDiagrams.Evans2013Construction.starPacked_conditions_to_bridge_of_scaled_eq
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Appendix A, Finite closure argument"
+    lean: VennDiagrams.Certification.PaperSignature.evans2013_four_step_chain_packed
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Included in comparator.json.
+
+  - source: "Appendix A, Reduced stable conditionality"
+    lean: VennDiagrams.packedFiniteReducedStableConditionalityRelation
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: defined
+    note: Not included in comparator.json.
+
+  - source: "Appendix A, Reduced stable conditionality"
+    lean: VennDiagrams.ReducedStable.centralEvent_univ
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Appendix A, Reduced stable conditionality"
+    lean: VennDiagrams.ReducedStable.centralEvent_compl
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Appendix A, Reduced stable conditionality"
+    lean: VennDiagrams.ReducedStable.centralEvent_inter
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Appendix A, Reduced stable conditionality"
+    lean: VennDiagrams.ReducedStable.laminalCell_central
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Appendix A, Reduced stable conditionality"
+    lean: VennDiagrams.ReducedStable.laminalCell_eq_iff
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Appendix A, Reduced stable conditionality"
+    lean: VennDiagrams.ReducedStable.laminalCell_mass_pos
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Appendix A, Reduced stable conditionality"
+    lean: VennDiagrams.ReducedStable.laminalConditionalPMF_sum_one
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Appendix A, Reduced stable conditionality"
+    lean: VennDiagrams.ReducedStable.CentralEvent_map_equiv_iff
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Appendix A, Reduced stable conditionality"
+    lean: VennDiagrams.ReducedStable.laminalConditionalPMF_equiv
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Appendix A, Reduced stable conditionality"
+    lean: VennDiagrams.packedFiniteSufficiencyRelation_le_reducedStableConditionality
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Appendix A, Reduced stable conditionality"
+    lean: VennDiagrams.parameterFreeCoin_in_sufficiency_not_conditionality
+    module: VennDiagrams.S05_SufficiencyConditionality
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Appendix A, Reduced stable conditionality"
+    lean: VennDiagrams.Certification.PaperSignature.reduced_stable_not_le_conditionality
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Not included in comparator.json.
+
+  - source: "Evans (2013), Lemma 2"
+    lean: VennDiagrams.Certification.PaperSignature.evans2013_lemma2
+    module: VennDiagrams.S06_PaperSignatures
+    status: proved
+    note: Included in comparator.json.

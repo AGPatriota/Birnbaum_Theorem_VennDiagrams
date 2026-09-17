@@ -1,0 +1,8 @@
+step,file,module,purpose
+1,VennDiagrams/S01_Relations.lean,VennDiagrams.S01_Relations,relations procedures and equivalence closure
+2,VennDiagrams/S02_FiniteExamples.lean,VennDiagrams.S02_FiniteExamples,exact finite examples and numerical tables
+3,VennDiagrams/S03_LikelihoodProcedures.lean,VennDiagrams.S03_LikelihoodProcedures,likelihood-based statistical procedures
+4,VennDiagrams/S04_StatisticalPrimitives.lean,VennDiagrams.S04_StatisticalPrimitives,finite statistical definitions and constructions
+5,VennDiagrams/S05_SufficiencyConditionality.lean,VennDiagrams.S05_SufficiencyConditionality,sufficiency conditionality Evans closures and reduced-first stable conditionality
+6,VennDiagrams/S06_PaperSignatures.lean,VennDiagrams.S06_PaperSignatures,exact paper-facing signatures and aggregate certificates
+7,VennDiagrams/S07_FinalAxiomAudit.lean,VennDiagrams.S07_FinalAxiomAudit,terminal promoted-declaration axiom audit

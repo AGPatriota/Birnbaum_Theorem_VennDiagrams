@@ -1,0 +1,8 @@
+.lake/
+build/
+verification.log
+axiom-audit.log
+scripts/__pycache__/
+
+.DS_Store
+*~
