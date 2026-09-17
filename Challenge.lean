@@ -339,6 +339,12 @@ theorem finite_neyman_fisher_factorization
     FiniteSufficient E T ↔ StrictFiniteFactorization E T := by
   sorry
 
+noncomputable def finiteStatisticRepresentative
+    {X : Type v} {Y : Type w} [Nonempty X] (T : X → Y) (y : Y) : X := by
+  classical
+  exact if h : ∃ x, T x = y then Classical.choose h
+    else Classical.choice inferInstance
+
 /-- Section 2.1. The pointwise criterion for minimal sufficiency on finite effective
 supports. -/
 theorem finite_minimal_sufficiency_iff_likelihoodFiberCriterion
