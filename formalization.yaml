@@ -33,7 +33,9 @@ sources:
     Lincovil Curivil, J. E., and Patriota, A. G. (2026). Birnbaum's principles in Venn diagrams:
     Extended version with Lean verification.
   location: Theorem 3.1; Corollary 3.1 and Corollary 3.2; Example 3.7; Appendix A.
-  note: The correspondence with the manuscript was checked by the authors
+  note: >-
+    The correspondence with the manuscript was checked by the authors. The paper will be uploaded 
+    to ArXiv after the Palomar certification
 - title: What does the proof of Birnbaum’s theorem prove?
   authors:
   - Evans, M.
@@ -45,6 +47,23 @@ sources:
   note: >-
     The statistical results are proved from our definitions of L, S, and C in the finite setting,
     under the stated assumptions.
+
+- title: On the foundations of statistical inference
+  authors:
+  - Birnbaum, A.
+  type: paper
+  relationship: background
+  id: https://doi.org/10.1080/01621459.1962.10480660
+  location: Journal of the American Statistical Association, 57(298), 269–306 (1962).
+  note: >-
+    Birnbaum (1962) formalized the likelihood, sufficiency, and conditionality
+    principles and established that the sufficiency and conditionality
+    principles jointly imply, and are implied by, the likelihood principle.
+    Our development uses Evans' (2013) relational framework to reformulate
+    this equivalence as a statement about classes of statistical procedures,
+    for finite effective sample spaces and a common non-empty finite
+    parameter space. The statistical results are proved from our definitions
+    of L, S, and C under these assumptions.
 status:
   scope: >-
     Finite effective sample spaces and a common non-empty finite parameter space. Theorem 3.1,
